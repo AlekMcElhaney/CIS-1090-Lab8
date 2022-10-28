@@ -28,7 +28,7 @@ function randomizeCow() {
 
 //Call this function when the player clicks the chicken
 function youWin() {
-    alert("you win");
+    alert("100");
 }
 
 //We've seen this before. Call the "youWin" function
