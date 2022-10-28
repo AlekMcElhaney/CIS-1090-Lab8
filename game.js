@@ -4,29 +4,31 @@ let chicken = document.querySelector("#chicken");
 let pig = document.querySelector("#pig");
 let cow = document.querySelector("#cow");
 //This function returns a random integer [0...max)
-function random(max){
+function random(max) {
     return Math.floor(Math.random() * max);
 }
 
 //This function sets the position of the chicken to a random
 //place inside the game div
-function randomizeChicken(){
+function randomizeChicken() {
     chicken.style.top = random(game.offsetHeight - chicken.offsetHeight) + "px";
     chicken.style.left = random(game.offsetWidth - chicken.offsetWidth) + "px";
 }
 
-function randomizePig(){
+function randomizePig() {
     pig.style.top = random(game.offsetHeight - pig.offsetHeight) + "px";
     pig.style.left = random(game.offsetWidth - pig.offsetWidth) + "px";
+}
 
-    function randomizeCow(){
-        cow.style.top = random(game.offsetHeight - cow.offsetHeight) + "px";
-        cow.style.left = random(game.offsetWidth - cow.offsetWidth) + "px";
-    
+function randomizeCow() {
+    cow.style.top = random(game.offsetHeight - cow.offsetHeight) + "px";
+    cow.style.left = random(game.offsetWidth - cow.offsetWidth) + "px";
+}
+
 
 //Call this function when the player clicks the chicken
-function youWin(){
-    alert("Winner!");
+function youWin() {
+    alert("you win");
 }
 
 //We've seen this before. Call the "youWin" function
@@ -38,27 +40,27 @@ cow.addEventListener('click', youWin);
 //OVER the element.
 //
 //Also: Peep the anonymous function we are passing in.
-chicken.addEventListener('mouseover', function(){
+chicken.addEventListener('mouseover', function () {
     //When you get the mouse over the chicken there
     //is an 80% chance the chicken moves before you
     //can click it
-    if ( random(100) < 80 ){
+    if (random(100) < 80) {
         randomizeChicken();
     }
 });
 
-pig.addEventListener('mouseover', function(){
-    
-    if ( random(100) < 90 ){
+pig.addEventListener('mouseover', function () {
+
+    if (random(100) < 90) {
         randomizePig();
     }
+});
+cow.addEventListener('mouseover', function () {
 
-    cow.addEventListener('mouseover', function(){
-        
-        if ( random(100) < 60 ){
-            randomizeCow();
-        }
-
+    if (random(100) < 60) {
+        randomizeCow();
+    }
+});
 window.setInterval(randomizeChicken, 1000);
 window.setInterval(randomizePig, 800);
 window.setInterval(randomizeCow, 1200);
